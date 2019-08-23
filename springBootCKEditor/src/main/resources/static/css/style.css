@@ -5,3 +5,14 @@
 	border-radius: 7px;
 	padding: 20px;
 }
+div1{
+	background-color: #ff3333;
+}
+
+body{
+font-family: Arial;
+  font-size:18px;
+background-image:url('../images/back2.jpg');
+background-repeat:no-repeat;
+background-size:cover;
+}

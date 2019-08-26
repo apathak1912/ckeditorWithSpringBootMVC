@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>A Simple Page with CKEditor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<!-- Static content -->
+<link rel="stylesheet" href="/resources/css/style.css">
+<script type="text/javascript" src="/resources/js/app.js"></script>
+<!-- Make sure the path to CKEditor is correct. -->
+<script src="/resources/js/ckeditor/ckeditor.js"></script>
+<title>Spring Boot</title>
+</head>
+    <body>
+    	<div>
+    		<div>
+    		</div>
+    		<hr>
+    		<div>
+    		</div>
+    		<hr>
+    		<div>
+    		</div>
+        </div>
+    </body>
+</html>

@@ -10,7 +10,7 @@ import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="users")
+@Table(name="signup")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Signup {
 	

@@ -24,7 +24,7 @@
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
 	</dependency>
-
+	
     <!-- JSTL tag lib
     <dependency>
       <groupId>javax.servlet.jsp.jstl</groupId>
@@ -47,7 +47,15 @@
 	    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jstl-1.2.jar</systemPath>
 	</dependency>
  
- 
+ 	<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc4 -->
+<dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+    <artifactId>sqljdbc4</artifactId>
+    <version>4.0</version>
+    <scope>system</scope>
+    <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/sqljdbc4-2.0.jar</systemPath>
+</dependency>
+ 	
     <dependency>
       <groupId>taglibs</groupId>
       <artifactId>standard</artifactId>

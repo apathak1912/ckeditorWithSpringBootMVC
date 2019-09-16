@@ -50,4 +50,9 @@ public class CKEditorServiceImpl implements CKEditorService {
 
 	}
 
+	@Override
+	public CkEditorModule findCKEditorDataBydescid(int id) {
+		return ckerepo.findCKEditorDataBydescid(id);
+	}
+
 }

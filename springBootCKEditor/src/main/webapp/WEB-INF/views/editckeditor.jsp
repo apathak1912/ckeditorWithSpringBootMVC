@@ -10,6 +10,9 @@
 <script type="text/javascript" src="/resources/js/app.js"></script>
 <!-- Make sure the path to CKEditor is correct. -->
 <script src="/resources/js/ckeditor/ckeditor.js"></script>
+<script>
+
+</script>
 
 <title>Spring Boot</title>
 </head>
@@ -27,15 +30,16 @@
     		</div> 
     		<hr>
     		<div>
-		            <textarea name="editor1" id="editor1" rows="10" cols="80">
-		                This is my textarea to be replaced with CKEditor.
+		            <textarea name="edit" id="edit" rows="10" cols="80">
+		                ${econtenet}
 		            </textarea>
-		            <script>
+		             <script>
 		                // Replace the <textarea id="editor1"> with a CKEditor
 		                // instance, using default configuration.
-		                CKEDITOR.replace( 'editor1' );
-		            </script>
-		            <input type="submit" value="Submit">
+		                CKEDITOR.replace( 'edit');
+		                
+		            </script> 
+		            <input type="submit" value="Submit"><input type="button" value="Edit" onclick="disableView()">
         		
     		  </div>
     		</form>

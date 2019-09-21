@@ -22,3 +22,9 @@ function getCkEditordata(){
 	var ckdata = CKEDITOR.instances.editor1.getData();
 	//document.getElementById("editor1").innerHTML =ckdata; 
 }
+
+function disableView(){
+	alert("hello");
+	/*var data = [[${contenet}]];
+	CKEDITOR.instances.edit.setData(data);*/
+} 

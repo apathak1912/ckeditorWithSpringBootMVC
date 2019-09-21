@@ -9,23 +9,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
-<title>Spring Boot</title>
+<title>Description</title>
+        <title>cell padding</title> 
+        <style> 
+            table, th, td { 
+                border: 2px solid green; 
+                text-align:center; 
+            } 
+            th, td { 
+                padding: 20px; 
+                background-color:none; 
+            } 
+              
+            h1 { 
+            color:green; 
+            } 
+        </style> 
 </head>
     <body>
     <div>
-    	<table>
+    	<table style ="border: solid red">
             <caption><h3>Result :</h3></caption>
-            <thead>
-                <tr>
-                    <td>Id</td>
-                    <td>Description</td>
+            <thead  style ="border: solid red">
+                <tr >
+                    <td >Id</td>
+                    <td >Description</td>
+                    <td >Edit</td>
                 </tr>   
             </thead>
             <tbody>
                 <c:forEach items="${inf}" var = "temp">
                     <tr>
                         <td>${temp.getId()}</td>
-                        <td>${temp.getDescription1()}</td>
+                        <td><a href="/descriptionview/${temp.getDescription1()}" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">${temp.getDescription1()}</a></td>
+                        <td ><a href="/edit/${temp.getDescription1()}" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">Edit</a></td>
+						<td ><a href="/edit/${temp.getId()}" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">Editid</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -33,3 +51,4 @@
     	</div>
     </body>
 </html>
+

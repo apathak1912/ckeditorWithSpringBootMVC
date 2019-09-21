@@ -136,7 +136,9 @@ public class HelloController {
 	   String ckedata ;
 	   ModelAndView model = new ModelAndView("/descriptionview");
 	   id = descriptionService.getDescriptionIdByDescription(desc);
+	   System.out.println("id"+id+" desc "+desc);
 	   if(id != 0) {
+		   System.out.println("id"+id);
 		   ckedata = ckeservices.findCKEditorDataBydescid(id).editor1;
 		    model.addObject("contenet",ckedata);
 		    return model;
@@ -146,6 +148,36 @@ public class HelloController {
 		   return model;
 	   }
 	
+	   
+	   
+   }
+   
+   /*@GetMapping("/edit/{desc}")
+   public ModelAndView doEdit(@PathVariable("desc") String desc) {
+	   int id=0;
+	   String ckedata ;
+	   ModelAndView model = new ModelAndView("/editckeditor");
+	   id = descriptionService.getDescriptionIdByDescription(desc);
+	   //System.out.println("id"+id+" desc "+desc);
+	   
+		   //System.out.println("id"+id);
+		   ckedata = ckeservices.findCKEditorDataBydescid(id).editor1;
+		  // System.out.println("ckdeta"+ckedata);
+		    model.addObject("econtenet",ckedata);
+		    return model;
+	   
+	   
+   }*/
+   
+   @GetMapping(value="/edit/{id}")
+   public ModelAndView doEdit(@PathVariable("id") int id) {
+	   System.out.println("id"+id);
+	   String ckedata ;
+	   ModelAndView model = new ModelAndView("/editckeditor");
+	   ckedata = ckeservices.findCKEditorDataBydescid(id).editor1;
+	   System.out.println("ckedata"+ckedata);
+	   model.addObject("econtenet",ckedata);
+	   return model;
 	   
 	   
    }

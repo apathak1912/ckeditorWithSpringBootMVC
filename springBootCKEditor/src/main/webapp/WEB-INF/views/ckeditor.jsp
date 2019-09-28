@@ -20,7 +20,7 @@
 							<i class="fa fa-long-arrow-right m-l-5"></i>
 		</a>
     	<div class = "div1">
-    	<form action="/ckeditordata" method="post" onsubmit="getCkEditordata()">
+    	<form action="/ckeditordata" method="post" onsubmit = "return getCkEditordata()"> 
     		 <div>
     		<label for="test">Description</label>
 			<span><input name="Description" id="Description" type="text" /></span>
@@ -28,7 +28,7 @@
     		<hr>
     		<div>
 		            <textarea name="editor1" id="editor1" rows="10" cols="80">
-		                This is my textarea to be replaced with CKEditor.
+		               
 		            </textarea>
 		            <script>
 		                // Replace the <textarea id="editor1"> with a CKEditor
@@ -38,8 +38,8 @@
 		            <input type="submit" value="Submit">
         		
     		  </div>
-    		</form>
-    		</div>
+    	</form>
+    	</div>
     
     </body>
 </html>

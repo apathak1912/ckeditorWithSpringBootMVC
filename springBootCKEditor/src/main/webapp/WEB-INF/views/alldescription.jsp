@@ -35,15 +35,16 @@
                     <td >Id</td>
                     <td >Description</td>
                     <td >Edit</td>
+                    <td>Delete</td>
                 </tr>   
             </thead>
             <tbody>
                 <c:forEach items="${inf}" var = "temp">
                     <tr>
                         <td>${temp.getId()}</td>
-                        <td><a href="/descriptionview/${temp.getDescription1()}" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">${temp.getDescription1()}</a></td>
-                        <td ><a href="/edit/${temp.getDescription1()}" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">Edit</a></td>
-						<td ><a href="/edit/${temp.getId()}" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">Editid</a></td>
+                        <td><a href="/descriptionview/${temp.getId()}">${temp.getDescription1()}</a></td>
+						<td ><a href="/edit/${temp.getId()}">Edit</a></td>
+						<td ><a href="/delete/${temp.getId()}">Delete</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

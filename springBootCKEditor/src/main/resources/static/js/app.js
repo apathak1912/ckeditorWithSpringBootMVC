@@ -19,12 +19,26 @@ function validateForm() {
 	}
 
 function getCkEditordata(){
-	var ckdata = CKEDITOR.instances.editor1.getData();
-	//document.getElementById("editor1").innerHTML =ckdata; 
+	
+	var ckedata =CKEDITOR.instances.editor1.getData().replace(/^\s\n+|\s\n+$/g,'');
+	alert(ckedata+"ckedata");
+	
+	if (document.getElementById("Description").value == ''){
+		alert("please Feel the description...");				
+		return false;
+	} 
+		if(ckedata == ''){
+			alert("please Enter the data Inside Editor...");
+			return false;				
+		} else {
+			alert("inside else cke");
+			return true;
+		}
+	
 }
 
-function disableView(){
-	alert("hello");
-	/*var data = [[${contenet}]];
-	CKEDITOR.instances.edit.setData(data);*/
+function updateDate(){
+	
+	document.getElementById("Description").value = CKEDITOR.instances.editor1.getData();
+	
 } 

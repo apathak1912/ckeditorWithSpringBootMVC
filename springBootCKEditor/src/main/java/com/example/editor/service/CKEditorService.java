@@ -13,6 +13,7 @@ public interface CKEditorService {
 	public CkEditorModule findById(long id);
 	public CkEditorModule update(CkEditorModule ckeditormodule, long l);
 	public void deleteUserById(long id);
-	CkEditorModule findCKEditorDataBydescid(int id);
+	public CkEditorModule findCKEditorDataBydescid(int id);
+	public void deleteCkeDataByDecID(int id);
 
 }

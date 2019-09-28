@@ -77,8 +77,19 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+		  <archive>
+			<manifest>
+				<!-- Jar file entry point -->
+				<addClasspath>true</addClasspath>
+                <classpathPrefix>libs/</classpathPrefix>
+				<mainClass>com.example.editor.SpringBootMvcApplication</mainClass>
+			</manifest>
+		  </archive>
+		</configuration>
       </plugin>
     </plugins>
   </build>
-  <packaging>war</packaging>
+ <packaging>jar</packaging>
+ <!--  <packaging>war</packaging> -->
 </project>

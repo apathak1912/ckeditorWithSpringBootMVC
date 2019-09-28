@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.editor.module.CkEditorModule;
 import com.example.editor.module.Description;
 import com.example.editor.module.Frontcontroller;
+import com.example.editor.module.Frontcontrollerupdate;
 import com.example.editor.module.Login;
 import com.example.editor.module.Signup;
 import com.example.editor.service.CKEditorService;
@@ -96,7 +97,7 @@ public class HelloController {
       return "ckeditor";
    }
    
-   @PostMapping(value="/ckeditordata")
+   @PostMapping(value="/ckeditordata")///editckeditordata
    public @ResponseBody String ckEditorProcessing( Frontcontroller frontcontroller){
 	   System.out.println(frontcontroller.getDescription()+" "+frontcontroller.getEditor1());
 	   
@@ -108,6 +109,35 @@ public class HelloController {
 	   descriptionService.createDescription(desc);
 	   ckeservices.createUser(ckem);
        return "Data Saved : " + ckem.editor1;
+   }
+   
+   
+   @PostMapping(value="/editckeditordata")//
+   public @ResponseBody String ckEditorUpdateProcessing( Frontcontrollerupdate frontcontroller){
+	  System.out.println("hhhhhhhhhhhhhhhhhhhh"+frontcontroller.getDescription());
+	  System.out.println("hhhhhhhhhhhhhhhhhhhh"+frontcontroller.getEditor1());
+	  
+	   CkEditorModule ckem = ckeservices.findCKEditorDataBydescid(frontcontroller.getDescriptionid()); 
+	   Description desc = descriptionService.getDescriptionByID(frontcontroller.getDescriptionid());
+	   String existingDescription = desc.getDescription1();
+	   String existingCkedata = ckem.geteditor1();
+	   
+	   if(!existingDescription.equals(frontcontroller.getDescription())) {
+		   desc.setDescription(frontcontroller.getDescription());
+		   descriptionService.createDescription(desc);
+	   }
+	   System.out.println(existingCkedata.equals(frontcontroller.getEditor1()));
+	   
+	   if(frontcontroller.getEditor1()!= null) {
+		   if(!existingCkedata.equals(frontcontroller.getEditor1())) {
+			   System.out.println("frontcontroller.getEditor1()"+frontcontroller.getEditor1());
+			   ckem.seteditor1(frontcontroller.getEditor1());
+			   ckeservices.createUser(ckem);
+		   }
+	   }else {
+		   return "Data is null: "+ ckem.editor1;
+	   }
+	   return "Data Saved : "+ ckem.editor1;
    }
    
    @PostMapping(value="/users")
@@ -130,23 +160,14 @@ public class HelloController {
 	   return model;
    }
    
-   @GetMapping("/descriptionview/{desc}")
-   public ModelAndView getDecriptionView(@PathVariable("desc") String desc) {
-	   int id=0;
+   @GetMapping("/descriptionview/{id}")
+   public ModelAndView getDecriptionView(@PathVariable("id") int id) {
 	   String ckedata ;
 	   ModelAndView model = new ModelAndView("/descriptionview");
-	   id = descriptionService.getDescriptionIdByDescription(desc);
-	   System.out.println("id"+id+" desc "+desc);
-	   if(id != 0) {
 		   System.out.println("id"+id);
 		   ckedata = ckeservices.findCKEditorDataBydescid(id).editor1;
 		    model.addObject("contenet",ckedata);
 		    return model;
-	   }
-	   else {
-		   model.addObject("contenet","sorry no data");
-		   return model;
-	   }
 	
 	   
 	   
@@ -171,15 +192,31 @@ public class HelloController {
    
    @GetMapping(value="/edit/{id}")
    public ModelAndView doEdit(@PathVariable("id") int id) {
-	   System.out.println("id"+id);
 	   String ckedata ;
 	   ModelAndView model = new ModelAndView("/editckeditor");
 	   ckedata = ckeservices.findCKEditorDataBydescid(id).editor1;
-	   System.out.println("ckedata"+ckedata);
-	   model.addObject("econtenet",ckedata);
+	   
+	   //System.out.println("test"+descriptionService.getDescriptionByID(id).getDescription1());
+	   model.addObject("edescriptionid",id);
+	   model.addObject("eecontenet",ckedata);
+	   model.addObject("edescription",descriptionService.getDescriptionByID(id).getDescription1());
+	   System.err.println(descriptionService.getDescriptionByID(id).getDescription1());
 	   return model;
 	   
 	   
    }
+   
+   @GetMapping(value="/delete/{id}")
+   public void deleteNotes(@PathVariable("id") int id) {
+	   try {
+	   ckeservices.deleteCkeDataByDecID(id);
+	   descriptionService.delDescriptionByID(id);
+	   }catch (Exception e) {
+		// TODO: handle exception
+		   e.printStackTrace();
+	   }
+   }
+   
+   
    
 }

@@ -12,4 +12,8 @@ public interface DescriptionService  {
 	public List<Description> getAllDescription();
 	
 	public int getDescriptionIdByDescription(String Description);
+	
+	public Description getDescriptionByID(int id);
+	
+	public void delDescriptionByID(int id);
 }

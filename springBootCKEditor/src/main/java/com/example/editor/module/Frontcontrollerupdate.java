@@ -1,6 +1,6 @@
 package com.example.editor.module;
 
-public class Frontcontroller {
+public class Frontcontrollerupdate {
 
 	
 	public String getEditor1() {

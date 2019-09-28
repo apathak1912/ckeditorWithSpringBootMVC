@@ -40,4 +40,21 @@ public class DescriptionServiceImpl implements DescriptionService {
 		return descriptionrepo.getDescriptionIdByDescription(Description);
 	}
 
+
+	@Override
+	public Description getDescriptionByID(int id) {
+		// TODO Auto-generated method stub
+		return descriptionrepo.getDescriptionById(id);
+	}
+
+
+	@Override
+	public void delDescriptionByID(int id) {
+		// TODO Auto-generated method stub
+		descriptionrepo.deleteDescription(id);
+		
+	}
+	
+	
+
 }

@@ -55,4 +55,10 @@ public class CKEditorServiceImpl implements CKEditorService {
 		return ckerepo.findCKEditorDataBydescid(id);
 	}
 
+	@Override
+	public void deleteCkeDataByDecID(int id) {
+		 ckerepo.deleteCkedata(id);
+		
+	}
+
 }

@@ -23,15 +23,16 @@
 							<i class="fa fa-long-arrow-right m-l-5"></i>
 		</a>
     	<div class = "div1">
-    	<form action="/ckeditordata" method="post" onsubmit="getCkEditordata()">
+    	<form action="/editckeditordata" method="post" onsubmit="updateDate()">
     		 <div>
     		<label for="test">Description</label>
-			<span><input name="Description" id="Description" type="text" /></span>
+			<span><input name="Description" id="Description" type="text" value = ${edescription} /></span>
+			<span><input name="descriptionid" id="descriptionid" type="hidden" value = ${edescriptionid} /></span>
     		</div> 
     		<hr>
     		<div>
-		            <textarea name="edit" id="edit" rows="10" cols="80">
-		                ${econtenet}
+		            <textarea name="editor1" id="edit" rows="10" cols="80">
+		                ${eecontenet}
 		            </textarea>
 		             <script>
 		                // Replace the <textarea id="editor1"> with a CKEditor
@@ -39,7 +40,7 @@
 		                CKEDITOR.replace( 'edit');
 		                
 		            </script> 
-		            <input type="submit" value="Submit"><input type="button" value="Edit" onclick="disableView()">
+		            <input type="submit" value="Submit">
         		
     		  </div>
     		</form>
